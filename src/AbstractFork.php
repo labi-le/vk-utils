@@ -44,10 +44,10 @@ abstract class AbstractFork extends Client
      * Fork tasks
      * @see https://vkcom.github.io/kphp/kphp-language/best-practices/async-programming-forks.html
      * @param callable $callable
-     * @param ICanBeSaved ...$instances
+     * @param object ...$instances
      * @return array
      */
-    protected function parallelRequest(callable $callable, ICanBeSaved ...$instances): array
+    protected function parallelRequest(callable $callable, ...$instances): array
     {
         return Fork::new()
             ->concurrent($this->concurrent)
@@ -56,10 +56,10 @@ abstract class AbstractFork extends Client
 
     /**
      * @param callable $callable
-     * @param ICanBeSaved ...$instances
+     * @param object ...$instances
      * @return array
      */
-    protected function nonParallelRequest(callable $callable, ICanBeSaved ...$instances): array
+    protected function nonParallelRequest(callable $callable, ...$instances): array
     {
         return array_map(static function ($instance) use ($callable) {
             return $callable($instance);
