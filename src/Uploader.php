@@ -18,20 +18,21 @@ use Astaroth\VkUtils\Builders\Attachments\Wall\DocWall;
 use Astaroth\VkUtils\Builders\Attachments\Wall\PhotoWall;
 use Astaroth\VkUtils\Contracts\ICanBeSaved;
 use Astaroth\VkUtils\Contracts\IFileUploader;
+use Exception;
+use LogicException;
 
 class Uploader extends AbstractFork implements IFileUploader
 {
     /**
      * @param ICanBeSaved ...$CompatibilityInstances
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function upload(...$CompatibilityInstances): array
     {
         $callable = function (ICanBeSaved $builder) {
             // get direct download link
             $response = $this->request($builder->getUploadMethod(), $builder->getUploadParams());
-
             // upload file
             $attach = $this->uploadFile(
                 (string)$response["upload_url"],
@@ -39,7 +40,7 @@ class Uploader extends AbstractFork implements IFileUploader
                 $builder->getPostFileType()
             );
 
-            /** The video\shortVideo itself is saved, and you don't need to call other methods */
+            /** video\shortVideo automatic itself is saved, and you don't need to call other methods */
             switch (get_class($builder)) {
                 case Video::class:
                 case ShortVideo::class:
@@ -52,7 +53,7 @@ class Uploader extends AbstractFork implements IFileUploader
             }
 
             if ($attachment === null) {
-                throw new \LogicException("Failed to save file");
+                throw new LogicException("Failed to save file");
             }
             return $attachment;
         };
@@ -66,7 +67,7 @@ class Uploader extends AbstractFork implements IFileUploader
      * @param array $data
      * @param object $object
      * @return string|null
-     * @throws \Exception
+     * @throws Exception
      */
     private function parseAttach(array $data, object $object): ?string
     {
@@ -94,7 +95,7 @@ class Uploader extends AbstractFork implements IFileUploader
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function fetchStory(array $data): string
     {
@@ -110,7 +111,7 @@ class Uploader extends AbstractFork implements IFileUploader
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function fetchPhoto(array $data): string
     {
@@ -127,7 +128,7 @@ class Uploader extends AbstractFork implements IFileUploader
 
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function fetchVideo(array $data): string
     {
@@ -142,7 +143,7 @@ class Uploader extends AbstractFork implements IFileUploader
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function fetchDoc(array $data): string
     {
@@ -168,7 +169,7 @@ class Uploader extends AbstractFork implements IFileUploader
     /**
      * @param array $data
      * @param string ...$needles
-     * @throws \Exception
+     * @throws Exception
      */
     private function validateAttachment(array $data, string ...$needles): void
     {

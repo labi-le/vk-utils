@@ -25,7 +25,7 @@ class ExceptionGenerator
      * @throws Exceptions\InternalErrorVkException
      * @throws Exceptions\AccessDeniedVkException
      * @throws Exceptions\TooManyRequestsVkException
-     * @throws Exceptions\MissingOrInvalidExceptionParameters
+     * @throws Exceptions\MissingOrInvalidParametersException
      */
     public function throw(): void
     {
@@ -51,7 +51,7 @@ class ExceptionGenerator
             case self::RuntimeException:
                 throw new Exceptions\RuntimeException($this->message);
             case 100:
-                throw new Exceptions\MissingOrInvalidExceptionParameters($this->message);
+                throw new Exceptions\MissingOrInvalidParametersException($this->message);
 
             default:
                 throw new Exceptions\VkException($this->message);

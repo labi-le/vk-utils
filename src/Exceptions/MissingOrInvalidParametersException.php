@@ -2,11 +2,13 @@
 
 namespace Astaroth\VkUtils\Exceptions;
 
+use Exception;
+
 /**
  * Class PermissionDeniedVkException
  * @package Astaroth\VkUtils\Exceptions
  */
-class MissingOrInvalidExceptionParameters extends \Exception
+class MissingOrInvalidParametersException extends Exception
 {
 
 }

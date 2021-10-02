@@ -6,7 +6,10 @@ namespace Astaroth\VkUtils;
 
 
 use Astaroth\VkUtils\Contracts\IClient;
+use Astaroth\VkUtils\Exceptions\DownloadFileErrorException;
 use Astaroth\VkUtils\Exceptions\VkException;
+use CURLFile;
+use Exception;
 use Throwable;
 
 /**
@@ -130,7 +133,7 @@ class Client implements IClient
 
     /**
      * @throws VkException
-     * @throws \Exception
+     * @throws Exception
      */
     protected function createException(array $error): void
     {
@@ -168,6 +171,14 @@ class Client implements IClient
      */
     protected function uploadFile(string $url, string $path, string $type): array
     {
+        if (filter_var($path, FILTER_VALIDATE_URL)) {
+            $path = tmpfile_ext($path);
+        }
+
+        if ($path === false) {
+            throw new DownloadFileErrorException("Failed to get file from resource");
+        }
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -175,7 +186,7 @@ class Client implements IClient
             [
                 CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POSTFIELDS => [$type => new \CURLFile($path, $type)]
+                CURLOPT_POSTFIELDS => [$type => new CURLFile($path, $type)]
             ]
         );
 
