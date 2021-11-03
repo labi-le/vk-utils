@@ -19,6 +19,9 @@ class Execute implements IExecute
         $this->access_token = $access_token;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function send(array $request): array
     {
         $oneBigRequest = ExecuteRequest::make($request, $this->access_token);
