@@ -20,6 +20,7 @@ use Astaroth\VkUtils\Contracts\ICanBeSaved;
 use Astaroth\VkUtils\Contracts\IFileUploader;
 use Exception;
 use LogicException;
+use function get_class;
 
 class Uploader extends AbstractFork implements IFileUploader
 {

@@ -11,6 +11,7 @@ use Astaroth\VkUtils\Exceptions\VkException;
 use CURLFile;
 use Exception;
 use Throwable;
+use function count;
 
 /**
  * Class Client
@@ -144,6 +145,7 @@ class Client implements IClient
     }
 
     /**
+     * Request parameters
      * @param array $parameters
      * @param string|null $requestToken
      * @return array
@@ -162,7 +164,6 @@ class Client implements IClient
 
     /**
      * Upload file to server
-     * In progress...
      * @param string $url
      * @param string $path
      * @param string $type
