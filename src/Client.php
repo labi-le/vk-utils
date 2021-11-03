@@ -35,6 +35,7 @@ class Client implements IClient
     }
 
     /**
+     * Set access token
      * @param string $token
      * @return static
      */
@@ -46,6 +47,7 @@ class Client implements IClient
     }
 
     /**
+     * Enable skipping errors
      * @param bool $bool
      * @return static
      */
