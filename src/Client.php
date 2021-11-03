@@ -57,6 +57,7 @@ class Client implements IClient
 
 
     /**
+     * Create and send request
      * @param string $method
      * @param array $parameters
      * @param string|null $token
