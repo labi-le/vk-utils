@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpPropertyOnlyWrittenInspection */
 
 declare(strict_types=1);
 
@@ -30,6 +30,8 @@ final class Message implements IMessageBuilder, IBuilder
     private bool $dont_parse_links = false;
     private bool $disable_mentions = false;
     private ?int $expire_ttl = null;
+
+    private int $random_id = 0;
 
 
     /**
@@ -179,32 +181,8 @@ final class Message implements IMessageBuilder, IBuilder
 
     public function getParams(): array
     {
-        $thisObject = get_object_vars($this);
-        $thisObject["random_id"] = mt_rand();
-
-        return $thisObject;
-//
-//        return
-//            [
-//                "user_ids" => $this->user_ids,
-//                "peer_ids" => $this->peer_ids,
-//                "domain" => $this->domain,
-//                "chat_id" => $this->chat_id,
-//                "message" => $this->message,
-//                "lat" => $this->lat,
-//                "long" => $this->long,
-//                "attachment" => $this->attachment,
-//                "reply_to" => $this->reply_to,
-//                "forward_messages" => $this->forward_messages,
-//                "sticker_id" => $this->sticker_id,
-//                "keyboard" => $this->keyboard,
-//                "payload" => $this->payload,
-//                "dont_parse_links" => $this->dont_parse_links,
-//                "disable_mentions" => $this->disable_mentions,
-//                "expire_ttl" => $this->expire_ttl,
-//
-//                'random_id' => mt_rand()
-//            ];
+        $this->random_id = mt_rand();
+        return get_object_vars($this);
     }
 
     public function getMethod(): string

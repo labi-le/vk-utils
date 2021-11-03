@@ -18,21 +18,21 @@ interface IStories
      * @param bool $add_to_news
      * @return static
      */
-    public function setAddToNews(bool $add_to_news);
+    public function setAddToNews(bool $add_to_news): IStories;
 
     /**
      * User IDs who can see the story
      * @param int ...$user_ids
      * @return static
      */
-    public function setUserIds(int ...$user_ids);
+    public function setUserIds(int ...$user_ids): IStories;
 
     /**
      * ID of the story to reply with the current
      * @param string $reply_to_story
      * @return static
      */
-    public function setReplyToStory(string $reply_to_story);
+    public function setReplyToStory(string $reply_to_story): IStories;
 
     /**
      * Link text to navigate from story (only for community stories). Possible values:
@@ -61,27 +61,27 @@ interface IStories
      * @param string $link_text
      * @return static
      */
-    public function setLinkText(string $link_text);
+    public function setLinkText(string $link_text): IStories;
 
     /**
      * Link address for going from history
      * @param string $link_url
      * @return static
      */
-    public function setLinkUrl(string $link_url);
+    public function setLinkUrl(string $link_url): IStories;
 
     /**
      * ID of the community to upload the story (should be verified or with the "fire" icon)
      * @param int $group_id
      * @return static
      */
-    public function setGroupId(int $group_id);
+    public function setGroupId(int $group_id): IStories;
 
     /**
      * https://vk.com/dev//objects/clickable_stickers
      * @param string $clickable_stickers
      * @return static
      */
-    public function setClickableStickers(string $clickable_stickers);
+    public function setClickableStickers(string $clickable_stickers): IStories;
 
 }

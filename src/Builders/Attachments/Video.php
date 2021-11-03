@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpPropertyOnlyWrittenInspection */
 
 declare(strict_types=1);
 
@@ -166,22 +166,6 @@ class Video extends AbstractFile implements IVideo
     public function getUploadParams(): array
     {
         return get_object_vars($this);
-
-//        return
-//            [
-//                "name" => $this->name,
-//                "description" => $this->description,
-//                "is_private" => $this->is_private,
-//                "wallpost" => $this->wallpost,
-//                "link" => $this->link,
-//                "group_id" => $this->group_id,
-//                "album_id" => $this->album_id,
-//                "privacy_view" => $this->privacy_view,
-//                "privacy_comment" => $this->privacy_comment,
-//                "no_comments" => $this->no_comments,
-//                "repeat" => $this->repeat,
-//                "compression" => $this->compression,
-//            ];
     }
 
 

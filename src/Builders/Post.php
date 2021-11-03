@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpPropertyOnlyWrittenInspection */
 
 declare(strict_types=1);
 
@@ -203,27 +203,6 @@ final class Post implements IPostBuilder, IBuilder
     public function getParams(): array
     {
         return get_object_vars($this);
-//        return
-//            [
-//                "owner_id" => $this->owner_id,
-//                "friends_only" => $this->friends_only,
-//                "from_group" => $this->from_group,
-//                "message" => $this->message,
-//                "attachments" => $this->attachments,
-//                "services" => $this->services,
-//                "signed" => $this->signed,
-//                "publish_date" => $this->publish_date,
-//                "lat" => $this->lat,
-//                "long" => $this->long,
-//                "place_id" => $this->place_id,
-//                "post_id" => $this->post_id,
-//                "guid" => $this->guid,
-//                "mark_as_ads" => $this->mark_as_ads,
-//                "close_comments" => $this->close_comments,
-//                "donut_paid_duration" => $this->donut_paid_duration,
-//                "mute_notifications" => $this->mute_notifications,
-//                "copyright" => $this->copyright,
-//            ];
     }
 
     public function getMethod(): string

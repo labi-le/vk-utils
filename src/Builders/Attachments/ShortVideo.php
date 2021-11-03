@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Astaroth\VkUtils\Builders\Attachments;
 
@@ -56,7 +57,7 @@ class ShortVideo extends AbstractFile implements IShortVideo
                 "can_make_duet" => $this->can_make_duet,
                 "file_size" => file_exists($this->path)
                     ? filesize($this->path)
-                    : HelpersTricks::filesize_web($this->path),
+                    : filesize_web($this->path),
                 "description" => $this->description,
                 "device_id" => $this->device_id,
             ];

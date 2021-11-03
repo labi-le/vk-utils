@@ -1,12 +1,15 @@
 <?php
+declare(strict_types=1);
 
 
 namespace Astaroth\VkUtils;
 
 
-use Astaroth\VkUtils\Contracts\ICanBeSaved;
 use Spatie\Fork\Fork;
 
+/**
+ *
+ */
 abstract class AbstractFork extends Client
 {
 
@@ -42,7 +45,6 @@ abstract class AbstractFork extends Client
 
     /**
      * Fork tasks
-     * @see https://vkcom.github.io/kphp/kphp-language/best-practices/async-programming-forks.html
      * @param callable $callable
      * @param object ...$instances
      * @return array
