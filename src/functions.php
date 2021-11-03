@@ -19,7 +19,7 @@ if (!function_exists('tmpfile_ext')) {
             rename($raw_file, $file);
 
             register_shutdown_function(static function () use ($file) {
-                unlink($file);
+                @unlink($file);
             });
 
             return $file;
