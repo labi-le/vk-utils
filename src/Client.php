@@ -127,11 +127,11 @@ class Client implements IClient
             @count($data["error"])
                 ?: $data["error"] = ["error_msg" => $data["error"], "error_code" => 0];
 
-            $this->createException((array)$data['error']);
+            $this->createException((array)$data["error"]);
         }
 
-        if (isset($data['execute_errors'][0])) {
-            $this->createException((array)$data['execute_errors'][0]);
+        if (isset($data["execute_errors"][0])) {
+            $this->createException((array)$data["execute_errors"][0]);
         }
     }
 

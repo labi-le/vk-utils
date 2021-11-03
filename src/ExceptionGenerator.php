@@ -21,41 +21,77 @@ class ExceptionGenerator
      * @throws Exceptions\UnknownErrorVkException
      * @throws Exceptions\VkException
      * @throws Exceptions\TooMuchSimilarVkException
-     * @throws Exceptions\RuntimeException
      * @throws Exceptions\AuthorizationFailedVkException
      * @throws Exceptions\InternalErrorVkException
      * @throws Exceptions\AccessDeniedVkException
      * @throws Exceptions\TooManyRequestsVkException
      * @throws Exceptions\MissingOrInvalidParametersException
+     * @throws Exceptions\AccessTokenIsInvalidVkException
      */
     public function throw(): void
     {
         switch ($this->error_code) {
             case 0:
-                throw new Exceptions\VkException($this->message);
+                throw new Exceptions\VkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 1:
-                throw new Exceptions\UnknownErrorVkException($this->message);
+                throw new Exceptions\UnknownErrorVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 5:
-                throw new Exceptions\AuthorizationFailedVkException($this->message);
+                throw new Exceptions\AuthorizationFailedVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 6:
-                throw new Exceptions\TooManyRequestsVkException($this->message);
+                throw new Exceptions\TooManyRequestsVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 7:
-                throw new Exceptions\PermissionDeniedVkException($this->message);
+                throw new Exceptions\PermissionDeniedVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 9:
-                throw new Exceptions\TooMuchSimilarVkException($this->message);
+                throw new Exceptions\TooMuchSimilarVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 10:
-                throw new Exceptions\InternalErrorVkException($this->message);
+                throw new Exceptions\InternalErrorVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 14:
-                throw new Exceptions\CaptchaRequiredVkException($this->message);
+                throw new Exceptions\CaptchaRequiredVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 15:
-                throw new Exceptions\AccessDeniedVkException($this->message);
-            case self::RuntimeException:
-                throw new Exceptions\RuntimeException($this->message);
+                throw new Exceptions\AccessDeniedVkException(
+                    $this->error_code,
+                    $this->message
+                );
+            case 27:
+                throw new Exceptions\AccessTokenIsInvalidVkException(
+                    $this->error_code,
+                    $this->message
+                );
             case 100:
-                throw new Exceptions\MissingOrInvalidParametersException($this->message);
+                throw new Exceptions\MissingOrInvalidParametersException(
+                    $this->error_code,
+                    $this->message
+                );
 
             default:
-                throw new Exceptions\VkException($this->message);
+                throw new Exceptions\VkException(
+                    $this->error_code,
+                    $this->message
+                );
         }
     }
 
