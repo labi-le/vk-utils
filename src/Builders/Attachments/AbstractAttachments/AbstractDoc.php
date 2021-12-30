@@ -7,6 +7,7 @@ namespace Astaroth\VkUtils\Builders\Attachments\AbstractAttachments;
 
 
 use Astaroth\VkUtils\Contracts\IDocs;
+use function array_merge;
 
 abstract class AbstractDoc extends AbstractFile implements IDocs
 {

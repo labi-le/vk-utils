@@ -8,6 +8,7 @@ namespace Astaroth\VkUtils\Builders;
 
 use Astaroth\VkUtils\Contracts\IBuilder;
 use Astaroth\VkUtils\Contracts\IMessageBuilder;
+use function implode, get_object_vars, mt_rand;
 
 final class Message implements IMessageBuilder, IBuilder
 {

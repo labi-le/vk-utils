@@ -6,6 +6,7 @@ namespace Astaroth\VkUtils\Requests;
 
 use Astaroth\VkUtils\Contracts\IScriptable;
 use InvalidArgumentException;
+use function array_map, sprintf, implode;
 
 /**
  * Class ExecuteRequest

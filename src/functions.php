@@ -51,7 +51,7 @@ if (!function_exists('filesize_web')) {
         curl_close($ch);
 
         if ($size === -1) {
-            throw new \RuntimeException("Incorrect url");
+            throw new RuntimeException("Incorrect url");
         }
 
         return $size;

@@ -6,6 +6,7 @@ namespace Astaroth\VkUtils\Builders\Attachments;
 
 
 use Astaroth\VkUtils\Builders\Attachments\AbstractAttachments\AbstractPhoto;
+use function array_merge;
 
 class Photo extends AbstractPhoto
 {

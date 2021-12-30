@@ -8,6 +8,7 @@ namespace Astaroth\VkUtils\Builders;
 
 use Astaroth\VkUtils\Contracts\IBuilder;
 use Astaroth\VkUtils\Contracts\IPostBuilder;
+use function get_object_vars;
 
 final class Post implements IPostBuilder, IBuilder
 {

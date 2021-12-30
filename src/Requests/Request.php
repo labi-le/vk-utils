@@ -7,6 +7,7 @@ namespace Astaroth\VkUtils\Requests;
 
 use Astaroth\VkUtils\Contracts\IRequest;
 use Astaroth\VkUtils\Contracts\IScriptable;
+use function sprintf, implode;
 
 /**
  * Class Request

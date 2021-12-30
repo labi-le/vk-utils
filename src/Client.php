@@ -12,6 +12,11 @@ use CURLFile;
 use Exception;
 use Throwable;
 use function count;
+use function curl_close, curl_exec, curl_init, curl_setopt, curl_setopt_array;
+use function filter_var;
+use function http_build_query;
+use function json_decode;
+use function tmpfile_ext;
 
 /**
  * Class Client

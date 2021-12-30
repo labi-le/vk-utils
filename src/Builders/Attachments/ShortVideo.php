@@ -5,7 +5,7 @@ namespace Astaroth\VkUtils\Builders\Attachments;
 
 use Astaroth\VkUtils\Builders\Attachments\AbstractAttachments\AbstractFile;
 use Astaroth\VkUtils\Contracts\IShortVideo;
-use Astaroth\VkUtils\Tricks\HelpersTricks;
+use LogicException;
 
 
 class ShortVideo extends AbstractFile implements IShortVideo
@@ -65,7 +65,7 @@ class ShortVideo extends AbstractFile implements IShortVideo
 
     public function getSaveParams(array $data): array
     {
-        throw new \LogicException("This type of attachment does not require parameters to save (saved automatically)");
+        throw new LogicException("This type of attachment does not require parameters to save (saved automatically)");
     }
 
     public function getUploadMethod(): string
@@ -75,6 +75,6 @@ class ShortVideo extends AbstractFile implements IShortVideo
 
     public function getSaveMethod(): string
     {
-        throw new \LogicException("This type of attachment does not require saving (automatically saved)");
+        throw new LogicException("This type of attachment does not require saving (automatically saved)");
     }
 }

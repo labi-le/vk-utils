@@ -6,10 +6,8 @@ namespace Astaroth\VkUtils;
 
 
 use Spatie\Fork\Fork;
+use function array_map;
 
-/**
- *
- */
 abstract class AbstractFork extends Client
 {
 

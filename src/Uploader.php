@@ -21,12 +21,13 @@ use Astaroth\VkUtils\Contracts\IFileUploader;
 use Exception;
 use LogicException;
 use function get_class;
+use function sprintf;
 
 class Uploader extends AbstractFork implements IFileUploader
 {
     /**
      * @param ICanBeSaved ...$CompatibilityInstances
-     * @return array
+     * @return string[]
      * @throws Exception
      */
     public function upload(...$CompatibilityInstances): array

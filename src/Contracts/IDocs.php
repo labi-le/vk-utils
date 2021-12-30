@@ -1,4 +1,7 @@
-<?php
+<?php /** @noinspection PhpMissingReturnTypeInspection */
+/** @noinspection PhpMissingReturnTypeInspection */
+/** @noinspection PhpMissingReturnTypeInspection */
+/** @noinspection PhpMissingReturnTypeInspection */
 
 declare(strict_types=1);
 

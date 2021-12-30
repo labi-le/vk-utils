@@ -7,6 +7,7 @@ namespace Astaroth\VkUtils\Builders\Attachments\AbstractAttachments;
 
 
 use Astaroth\VkUtils\Contracts\IStories;
+use function array_merge;
 
 
 abstract class AbstractStories extends AbstractFile implements IStories

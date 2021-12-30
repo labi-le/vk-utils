@@ -6,9 +6,8 @@ namespace Astaroth\VkUtils;
 
 
 use Astaroth\VkUtils\Contracts\IExecute;
-use Astaroth\VkUtils\Contracts\IScriptable;
 use Astaroth\VkUtils\Requests\ExecuteRequest;
-use Astaroth\VkUtils\Requests\Request;
+use Throwable;
 
 class Execute implements IExecute
 {
@@ -20,7 +19,7 @@ class Execute implements IExecute
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function send(array $request): array
     {

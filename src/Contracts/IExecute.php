@@ -12,7 +12,7 @@ interface IExecute
 {
     /**
      * @param Request[] $request
-     * @return array
+     * @return IScriptable[]
      * @throws VkException
      */
     public function send(array $request): array;
