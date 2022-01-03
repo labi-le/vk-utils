@@ -27,6 +27,7 @@ class ExceptionGenerator
      * @throws Exceptions\TooManyRequestsVkException
      * @throws Exceptions\MissingOrInvalidParametersException
      * @throws Exceptions\AccessTokenIsInvalidVkException
+     * @throws Exceptions\RateLimitReachedVkException
      */
     public function throw(): void
     {
@@ -78,6 +79,11 @@ class ExceptionGenerator
                 );
             case 27:
                 throw new Exceptions\AccessTokenIsInvalidVkException(
+                    $this->message,
+                    $this->error_code
+                );
+            case 29:
+                throw new Exceptions\RateLimitReachedVkException(
                     $this->message,
                     $this->error_code
                 );
