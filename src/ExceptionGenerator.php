@@ -77,6 +77,11 @@ class ExceptionGenerator
                     $this->message,
                     $this->error_code
                 );
+            case 17:
+                throw new Exceptions\ValidationException(
+                    $this->message,
+                    $this->error_code
+                );
             case 27:
                 throw new Exceptions\AccessTokenIsInvalidVkException(
                     $this->message,
